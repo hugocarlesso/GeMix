@@ -1,6 +1,6 @@
 import os
 import numpy as np
-import tqdm
+from tqdm import tqdm
 import torch
 from sklearn.metrics import (
     accuracy_score,
@@ -13,7 +13,7 @@ from sklearn.metrics import (
 import matplotlib.pyplot as plt
 import seaborn as sns
 from utils import paths
-from anonym_git.src.utils.model_factory import get_model
+from utils.model_factory import get_model
 from dataset import get_test_loader
 from configs.test_config import Config
 
@@ -75,7 +75,7 @@ def evaluate_model(config):
     print(f"\nEvaluating model: {label}")
 
     # Load the model and its weights
-    model = get_model(model_name, device)
+    model = get_model(config, device)
     model_path = os.path.join(paths.PATH_WEIGHTS_FOLDER, model_name, expe)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)
