@@ -1,4 +1,3 @@
-"""
 # GeMix – GAN-Mixup CT Classification 🧠✨
 
 **GeMix** is a modular framework to generate GAN-based mixup CT datasets and train robust classifiers.
